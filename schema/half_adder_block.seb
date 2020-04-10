@@ -1,0 +1,26 @@
+import:
+  xor_block
+  and_block
+
+configuration:
+  name: half_adder_block
+  input: X Y
+  output: S C
+
+element:
+  n1: xor_block
+  n2: and_block
+
+connection:
+  X -> n1.input[0]
+  Y -> n1.input[1]
+  X -> n2.input[0]
+  Y -> n2.input[1]
+  n1.output[0] -> S
+  n2.output[0] -> C
+
+test:
+  0 0 -> 0 0
+  0 1 -> 1 0
+  1 0 -> 1 0
+  1 1 -> 0 1

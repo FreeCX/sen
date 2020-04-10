@@ -1,0 +1,29 @@
+import:
+  NAND
+  or_block
+  and_block
+
+configuration:
+  name: xor_block
+  input: A B
+  output: Z
+
+element:
+  n1: NAND
+  n2: or_block
+  n3: and_block
+
+connection:
+  A -> n1.input[0]
+  B -> n1.input[1]
+  A -> n2.input[0]
+  B -> n2.input[1]
+  n1.output[0] -> n3.input[0]
+  n2.output[0] -> n3.input[1]
+  n3.output[0] -> Z
+
+test:
+  0 0 -> 0
+  1 0 -> 1
+  0 1 -> 1
+  1 1 -> 0

@@ -1,0 +1,19 @@
+import:
+  NAND
+
+configuration:
+  name: not_block
+  input: A
+  output: B
+
+element:
+  n1: NAND
+
+connection:
+  A -> n1.input[0]
+  A -> n1.input[1]
+  n1.output[0] -> B
+
+test:
+  0 -> 1
+  1 -> 0

@@ -1,2 +1,3 @@
 # sen
-simple element network
+- SEN - Simple Element Network
+- SEB - Simple Element Block
