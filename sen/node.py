@@ -31,7 +31,7 @@ def NOT():
     node = Node(name='not', inputs=1, outputs=1, func=op_not)
     node.set_tests([(0, 1), (1, 0)])
 
-    return 
+    return node
 
 
 def AND():
