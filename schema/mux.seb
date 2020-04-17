@@ -1,0 +1,37 @@
+:import
+  AND
+  NOT
+  OR
+
+:configuration
+  name: mux
+  input: A B C
+  output: Z
+
+:element
+  not_c: NOT
+  a_n_c: AND
+  b_n_c: AND
+  result: OR
+
+:connection
+  C -> not_c.input[0]
+  A -> a_n_c.input[0]
+  not_c.output[0] -> a_n_c.input[1]
+  B -> b_n_c.input[0]
+  C -> b_n_c.input[1]
+  a_n_c.output[0] -> result.input[0]
+  b_n_c.output[0] -> result.input[1]
+  result.output[0] -> Z
+
+:test
+  0 0 0 -> 0
+  0 0 1 -> 0
+  0 1 0 -> 0
+  0 1 1 -> 1
+  1 0 0 -> 1
+  1 0 1 -> 0
+  1 1 0 -> 1
+  1 1 1 -> 1
+
+:end

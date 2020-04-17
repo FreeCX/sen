@@ -37,14 +37,15 @@ def loads(lines):
     block = {}
     buff = []
     for index, line in enumerate(lines):
-        if not (line.startswith(SPACE) or line.startswith(TAB)) or index == len(lines) - 1:
+        if line.startswith(':'):
             if len(buff) > 0:
                 block[block_name] = buff
                 buff = []
             block_name = line.strip().replace(COLON, '')
         else:
             val = line.strip()
-            buff.append(split(val, SEP))
+            if len(val) > 0:
+                buff.append(split(val, SEP))
     return normalize(block)
 
 

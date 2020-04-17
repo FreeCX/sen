@@ -1,0 +1,30 @@
+:import
+  AND
+  NOR
+
+:configuration
+  name: flip_flop
+  input: S R E
+  output: Q
+
+:element
+  n1: AND
+  n2: AND
+  n3: NOR
+  n4: NOR
+
+:connection
+  R -> n1.input[0]
+  E -> n1.input[1]
+  E -> n2.input[0]
+  S -> n2.input[1]
+
+  n1.output[0] -> n3.input[0]
+  n2.output[0] -> n4.input[1]
+
+  n3.output[0] -> n4.input[0]
+  n4.output[0] -> n3.input[1]
+
+  n3.output[0] -> Q
+
+:end

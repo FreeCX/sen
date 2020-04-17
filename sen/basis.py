@@ -66,11 +66,10 @@ class Node:
 
     def execute(self):
         if hasattr(self.func, '__call__'):
-            self.func(input=self.input, output=self.output) 
+            self.func(input=self.input, output=self.output)
         else:
             # передаём сигналы на все подключенные входы
             for nid, nwire, bwire in self.wire_input:
-                # print(nid, nwire, bwire)
                 self.nodes[nid].input[nwire] = self.input[bwire]
 
             # TODO:

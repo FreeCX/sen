@@ -1,9 +1,10 @@
 from datetime import datetime as dt
-from sen.node import default_impl
 from pathlib import Path
-from sen import parser
 import json
 import re
+
+from sen.node import default_impl
+from sen import parser
 
 
 FIND_NODE = re.compile(r'^\w+')

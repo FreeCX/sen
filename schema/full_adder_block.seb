@@ -1,18 +1,18 @@
-import:
+:import
   half_adder_block
   or_block
 
-configuration:
+:configuration
   name: full_adder_block
   input: X Y Z
   output: S C
 
-element:
+:element
   n1: half_adder_block
   n2: half_adder_block
   n3: or_block
 
-connection:
+:connection
   X -> n2.input[0]
   Y -> n1.input[0]
   Z -> n1.input[1]
@@ -22,7 +22,7 @@ connection:
   n2.output[0] -> S
   n3.output[0] -> C
 
-test:
+:test
   0 0 0 -> 0 0
   1 0 0 -> 1 0
   0 1 0 -> 1 0
@@ -31,3 +31,5 @@ test:
   1 0 1 -> 0 1
   0 1 1 -> 0 1
   1 1 1 -> 1 1
+
+:end

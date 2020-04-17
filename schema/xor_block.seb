@@ -1,19 +1,19 @@
-import:
+:import
   NAND
   or_block
   and_block
 
-configuration:
+:configuration
   name: xor_block
   input: A B
   output: Z
 
-element:
+:element
   n1: NAND
   n2: or_block
   n3: and_block
 
-connection:
+:connection
   A -> n1.input[0]
   B -> n1.input[1]
   A -> n2.input[0]
@@ -22,8 +22,10 @@ connection:
   n2.output[0] -> n3.input[1]
   n3.output[0] -> Z
 
-test:
+:test
   0 0 -> 0
   1 0 -> 1
   0 1 -> 1
   1 1 -> 0
+
+:end
